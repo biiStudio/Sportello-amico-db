@@ -1,0 +1,336 @@
+extends layout
+
+block content
+    .container
+        h2.text-center Nuovo candidato:
+        ul.errors
+            if errors
+                each error, i in errors
+                    li.alert.alert-danger #{error.msg}
+            h5 INFORMAZIONI PERSONALI:
+        
+        form(method='post', action='/candidats/new_candidate',enctype='multipart/form-data')
+                .form-row
+                    .form-group.col-md-6
+                      label Nome:
+                      |       
+                      input.form-control(type='text', name='firstname', placeholder='Nome')
+                    |     
+                    .form-group.col-md-6
+                      label Cognome:
+                      |       
+                      input.form-control(type='text', name='lastname', placeholder='Cognome')
+                    |  
+                .form-row
+                    .form-group.col-md-4
+                      label Data di nascita:
+                      |       
+                      input.form-control(type='date', name='bday', placeholder='')
+                    |     
+                    .form-group.col-md-4
+                      label Codice Fiscale:
+                      |       
+                      input.form-control(type='text', name='idnp', placeholder='')
+                    .form-group.col-md-2
+                      label Nazionalita:
+                      |       
+                      input.form-control(type='text', name='nationality', placeholder='')
+                    |  
+                    .form-group.col-md-2
+                      label Sesso:
+                      |       
+                      select.form-control(name='gender')
+                        option M
+                        option F
+                    |  
+                .form-group
+                    label Indirizzo:
+                    |     
+                    input.form-control(type='text', name='address', placeholder='via ...')
+                    |   
+                  |   
+                .form-row
+                    .form-group.col-md-4
+                        label Citta:
+                        |       
+                        input.form-control(type='text', name='city', placeholder='Padova')
+                    |     
+                    .form-group.col-md-2
+                        label Prov.:
+                          |       
+                        select.form-control(name='region')
+                            option PD
+                            option VE
+                            option TV
+                            option VI
+                            option VR
+                            option BL
+                            option RO
+                            |     
+                    .form-group.col-md-2
+                        label CAP:
+                        |       
+                        input.form-control(type='text', name='zip')
+                          |   
+                .form-row
+                    .form-group.col-md-4
+                        label Telefono:
+                        |     
+                        input.form-control(type='text', aria-describedby='telComments', name='tel', placeholder='+39')
+                        |     
+                        small#telComments.form-text.text-muted Si possono inserire piu  recapiti telefonici separandoli con ";".
+                    .form-group.col-md-4
+                        label Email:
+                        |     
+                        input.form-control(type='email', name='email', placeholder='email...')
+                  |   
+                h5 ESPERIENZA PROFESSIONALE:
+            
+                .form-group
+                    label Esperienza lavorativa principale:
+                    |       
+                    textarea.form-control(type='text', name='mainWorkExperience', placeholder='Azienda, Periodo, Mansioni')
+                    |     
+                .form-group
+                    label Esperienza lavorativa secondaria:
+                    |       
+                    textarea.form-control(type='text', name='otherWorkExperience', placeholder='Azienda, Periodo, Mansioni')
+                    |     
+                .form-group
+                    label Occupazione ricercata:
+                    |       
+                    textarea.form-control(type='text', name='lookingFor', placeholder='...')
+                    |     
+                .form-group
+                    label Capacità e competenze professionali:
+                    |       
+                    textarea.form-control(type='text', name='capabilities', placeholder='...')
+                    |     
+                .form-group
+                    label Capacità e competenze informatiche:
+                    |       
+                    textarea.form-control(type='text', name='ITcapabilities', placeholder='...')
+                    |     
+                h5 ISTRUZIONE E FORMAZIONE:
+            
+                .form-group
+                    label Istruzione e Formazione principale:
+                    |       
+                    textarea.form-control(type='text', name='mainSchool', placeholder='...')
+                    |     
+                .form-group
+                    label Corsi di formazione:
+                    |       
+                    textarea.form-control(type='text', name='courses', placeholder='...')
+                    |     
+                h5 COMPETENZE PERSONALI:
+            
+                .form-row
+                    .form-group.col-md-4
+                        label Madrelingua:
+                        |       
+                        input.form-control(type='text', name='language1')
+                .form-row
+                    .form-group.col-md-4
+                        label Seconda lingua:
+                        |       
+                        input.form-control(type='text', name='language2', )
+                    .form-group.col-md-2
+                            label Comprensione:
+                              |       
+                            select.form-control(name='l2C')
+                                option(selected='', disabled='', hidden='') -
+                                option A1
+                                option A2
+                                option B1
+                                option B2
+                                option C1
+                                option C2
+                                |     
+                    .form-group.col-md-2
+                            label Parlato:
+                              |       
+                            select.form-control(name='l2P')
+                                option(selected='', disabled='', hidden='') -
+                                option A1
+                                option A2
+                                option B1
+                                option B2
+                                option C1
+                                option C2
+                                |     
+                    .form-group.col-md-2
+                            label Scritto:
+                              |       
+                            select.form-control(name='l2S')
+                                option(selected='', disabled='', hidden='') -
+                                option A1
+                                option A2
+                                option B1
+                                option B2
+                                option C1
+                                option C2
+                                |     
+                .form-row
+                    .form-group.col-md-4
+                        label Terza lingua:
+                        |       
+                        input.form-control(type='text', name='language3')
+                    .form-group.col-md-2
+                            label Comprensione:
+                              |       
+                            select.form-control(name='l3C')
+                                option(selected='', disabled='', hidden='') -
+                                option A1
+                                option A2
+                                option B1
+                                option B2
+                                option C1
+                                option C2
+                                |     
+                    .form-group.col-md-2
+                            label Parlato:
+                              |       
+                            select.form-control(name='l3P')
+                                option(selected='', disabled='', hidden='') -
+                                option A1
+                                option A2
+                                option B1
+                                option B2
+                                option C1
+                                option C2
+                                |     
+                    .form-group.col-md-2
+                            label Scritto:
+                              |       
+                            select.form-control(name='l3S')
+                                option(selected='', disabled='', hidden='') -
+                                option A1
+                                option A2
+                                option B1
+                                option B2
+                                option C1
+                                option C2
+                                |     
+                .form-row
+                    .form-group.col-md-4
+                        label Quarta lingua:
+                        |       
+                        input.form-control(type='text', name='language4')
+                    .form-group.col-md-2
+                            label Comprensione:
+                              |       
+                            select.form-control(name='l4C')
+                                option(selected='', disabled='', hidden='') -
+                                option A1
+                                option A2
+                                option B1
+                                option B2
+                                option C1
+                                option C2
+                                |     
+                    .form-group.col-md-2
+                            label Parlato:
+                              |       
+                            select.form-control(name='l4P')
+                                option(selected='', disabled='', hidden='') -
+                                option A1
+                                option A2
+                                option B1
+                                option B2
+                                option C1
+                                option C2
+                                |     
+                    .form-group.col-md-2
+                            label Scritto:
+                              |       
+                            select.form-control(name='l4S')
+                                option(selected='', disabled='', hidden='') -
+                                option A1
+                                option A2
+                                option B1
+                                option B2
+                                option C1
+                                option C2
+                                |     
+                .form-row
+                    .form-group.col-md-4
+                        label Quinta lingua:
+                        |       
+                        input.form-control(type='text', name='language5')
+                    .form-group.col-md-2
+                            label Comprensione:
+                              |       
+                            select.form-control(name='l5C')
+                                option(selected='', disabled='', hidden='') -
+                                option A1
+                                option A2
+                                option B1
+                                option B2
+                                option C1
+                                option C2
+                                |     
+                    .form-group.col-md-2
+                            label Parlato:
+                              |       
+                            select.form-control(name='l5P')
+                                option(selected='', disabled='', hidden='') -
+                                option A1
+                                option A2
+                                option B1
+                                option B2
+                                option C1
+                                option C2
+                                |     
+                    .form-group.col-md-2
+                            label Scritto:
+                              |       
+                            select.form-control(name='l5S')
+                                option(selected='', disabled='', hidden='') -
+                                option A1
+                                option A2
+                                option B1
+                                option B2
+                                option C1
+                                option C2
+                                |     
+                h5 ULTERIORI INFORMAZIONI:
+            
+                .form-row
+                    .form-group.col-md-8
+                        label Problematiche:
+                        |       
+                        input.form-control(type='text', name='problems', placeholder='')
+                    .form-group.col-md-2
+                        label Patente:
+                        |       
+                        input.form-control(type='text', name='license', placeholder='')
+                .form-row
+                    .form-group.col-md-4
+                        label CV
+                        |     
+                        input.form-control-file(type='file', name='cv')
+                    .form-check.form-check-inline.col-md-4
+                        input.form-check-input(type='checkbox', name='euroCV')
+                        |   
+                        label.form-check-label Formato Europeo:
+                    .form-group.col-md-4
+                        label Foto
+                        |     
+                        input.form-control-file(type='file', name='profileimage')
+                .form-row
+                    .form-check.form-check-inline.col-md-4
+                        input.form-check-input(type='checkbox', name='privacy')
+                        |   
+                        label.form-check-label Privacy:
+                    .form-check.form-check-inline.col-md-4
+                        input.form-check-input(type='checkbox', name='active')
+                        |   
+                        label.form-check-label Occupato:
+                .form-row
+                    .form-group.col-md-12
+                input.btn.btn-primary.col-md-12(name='submit', type='submit', values='Salva')
+        br
+        br
+        br
+        

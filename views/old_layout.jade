@@ -1,0 +1,50 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+
+    title= SportelloAmico
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    link(href='/stylesheets/style.css', rel='stylesheet')
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.navbar-static-top
+      a.navbar-brand.js-scroll-trigger(href='/') SportelloAmico
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        ul.navbar-nav.ml-auto
+          li.nav-item(class=(title == 'Home' ? 'active' : ''))
+            a.nav-link.js-scroll-trigger(href='/') Home
+        ul.navbar-nav.ml-auto
+          if !user
+            li.nav-item(class=(title == 'Login' ? 'active' : ''))
+              a.nav-link(href='/users/login') Login
+        ul.nav.navbar-nav.ml-auto
+          if user
+            li.nav-item(class=(title == 'Cerca candidado' ? 'active' : ''))
+              a.nav-link(href='/candidats') Cerca candidado
+        ul.nav.navbar-nav.ml-auto
+          if user
+            li.nav-item(class=(title == 'Nuovo candidado' ? 'active' : ''))
+              a.nav-link(href='/candidats/new_candidate') Nuovo candidado
+        ul.nav.navbar-nav.ml-auto
+          if user && user.username=='Ianos2' 
+            li.nav-item
+                a.nav-link(href='/users/register') Nuovo Utente
+        ul.nav.navbar-nav.ml-auto.w-100.justify-content-end
+          if user
+            li.nav-item
+              a.nav-link(href='/users/logout') Logout
+
+    main.container
+      != messages()
+      block content
+        
+    footer.py-5.bg-dark
+      .container
+        p.m-0.text-center.text-white &copy;2018, All Rights Reserved
+      
+  script(src='/javascripts/jquery.min.js')
+  script(src='/javascripts/bootstrap.js')
+  script(src='/javascripts/jquery.easing.min.js')
+  script(src='/javascripts/scrolling-nav.js')

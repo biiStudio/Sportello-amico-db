@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  header
+      .container
+          .col-lg-12.mx-auto
+            h2.text-center Area dedicata
+            p.lead 
+              form.col-lg-4.mx-auto(method='post', action='/users/login',enctype='multipart/form-data')
+                .form-group
+                    label Utente
+                    input.form-control(name='username', type='text')
+                .form-group
+                    label Password
+                    input.form-control(name='password', type='password')
+                input.btn.btn-default(name='submit', type='submit', values='Login')

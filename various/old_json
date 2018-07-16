@@ -1,0 +1,29 @@
+{
+  "name": "sportello_amico",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.2.6",
+    "jade": "*",
+    "body-parser": "*",
+    "cookie-parser": "*",
+    "debug": "*",
+    "morgan": "*",
+    "serve-favicon": "*",
+    "mongodb": "*",
+    "mongoose": "*",
+    "connect-flash": "*",
+    "express-validator": "*",
+    "express-session": "*",
+    "express-messages": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "passport-http": "*",
+    "multer": "*",
+    "bcrypt": "*",
+    "node-gyp": "*"
+  }
+}

@@ -1,0 +1,126 @@
+extends layout
+
+block content
+    .container
+        a(href='/candidats') &lt; Go Back
+
+    .details
+        h5.text-center #{candidats.firstname} #{candidats.lastname}
+        
+        
+        .container
+            legend INFORMAZIONI PERSONALI:
+            .row
+                .col-md-6
+                    p Nome: #[strong #{candidats.firstname}] &nbsp; &nbsp; Cognome: #[strong #{candidats.lastname}]
+            .row
+                .col-md-6
+                    p Data di nascita: #[strong #{candidats.bday}] &nbsp; &nbsp; Sesso: #[strong #{candidats.gender}]
+                .col-md-6 
+                    p Nazionalita: #[strong #{candidats.nationality}] &nbsp; &nbsp; Codice Fiscale: #[strong #{candidats.idnp}]
+            .row
+                .col-md-12
+                    p Indirizzo: #[strong #{candidats.address}] &nbsp; &nbsp; Citta: #[strong #{candidats.city}] &nbsp; &nbsp; Prov.: #[strong #{candidats.region}] &nbsp; &nbsp; CAP: #[strong #{candidats.zip}]
+            .row
+                .col-md-12 
+                    p Telefono: #[strong #{candidats.tel}] &nbsp; &nbsp; Email: #[strong #{candidats.email}]
+                    
+            legend ESPERIENZA PROFESSIONALE:
+            .row 
+                .col-md-12
+                    label Esperienza lavorativa principale:
+                    p #[strong #{candidats.mainWorkExperience}]
+            .row
+                .col-md-12
+                    label Esperienza lavorativa secondaria:
+                    p #[strong #{candidats.otherWorkExperience}]
+            .row
+                .col-md-12
+                    label Occupazione ricercata:
+                    p #[strong #{candidats.lookingFor}]
+            .row
+                .col-md-12
+                    label Capacità e competenze professionali:
+                    p #[strong #{candidats.capabilities}]
+            .row
+                .col-md-12
+                    label Capacità e competenze informatiche:
+                    p #[strong #{candidats.ITcapabilities}]
+                    
+            legend ISTRUZIONE E FORMAZIONE:
+            .row
+                .col-md-12
+                    label Istruzione e Formazione principale:
+                    p #[strong #{candidats.mainSchool}]
+            .row
+                .col-md-12
+                    label Corsi di formazione:
+                    p #[strong #{candidats.courses}]
+                    
+            legend COMPETENZE PERSONALI:
+            .row
+                .col-md-6
+                    p Madrelingua: #[strong #{candidats.language1}] 
+            .row
+                .col-md-4
+                    p Seconda lingua: #[strong #{candidats.language2}] 
+                .col-md-3
+                    p Comprensione: #[strong #{candidats.l2C}]
+                .col-md-2
+                    p Parlato: #[strong #{candidats.l2P}]
+                .col-md-2
+                    p Scritto: #[strong #{candidats.l2S}]
+            .row
+                .col-md-4
+                    p Seconda lingua: #[strong #{candidats.language3}] 
+                .col-md-3
+                    p Comprensione: #[strong #{candidats.l3C}]
+                .col-md-2
+                    p Parlato: #[strong #{candidats.l3P}]
+                .col-md-2
+                    p Scritto: #[strong #{candidats.l3S}]
+            .row
+                .col-md-4
+                    p Seconda lingua: #[strong #{candidats.language4}] 
+                .col-md-3
+                    p Comprensione: #[strong #{candidats.l4C}]
+                .col-md-2
+                    p Parlato: #[strong #{candidats.l4P}]
+                .col-md-2
+                    p Scritto: #[strong #{candidats.l4S}]
+            .row
+                .col-md-4
+                    p Seconda lingua: #[strong #{candidats.language5}] 
+                .col-md-3
+                    p Comprensione: #[strong #{candidats.l5C}]
+                .col-md-2
+                    p Parlato: #[strong #{candidats.l5P}]
+                .col-md-2
+                    p Scritto: #[strong #{candidats.l5S}]
+                    
+            legend ULTERIORI INFORMAZIONI:
+            .row 
+                .col-md-12 
+                    p Problematiche:
+                    br
+                    p #[strong #{candidats.problems}]
+            .row
+                .col-md-4
+                    p Foto: #[strong #{candidats.profileimage}]
+                .col-md-4
+                    p CV: #[strong #{candidats.cv}]
+                .col-md-2
+                    p Formato Europeo: #[strong #{candidats.euroCV}]
+            .row
+                .col-md-3
+                    p Patente: #[strong #{candidats.license}]
+                .col-md-3
+                    p Privacy: #[strong #{candidats.privacy}]
+                .col-md-3
+                    p Occupato: #[strong #{candidats.active}]
+        .container
+            br
+            br
+            a(href='../edit/#{candidats._id}') Edit
+            |  |  
+            a(href='../delete/#{candidats._id}') Delete

@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h4 Lista Candidati
+    ul.listing
+        - if (candidate != false) {
+            each candidate, i in candidats
+                .row
+                    .col-md-4
+                        p #{candidate.firstname} #{candidate.lastname}
+                    .col-md-4
+                        p #{candidate.bday} #{candidate.gender}
+                    .col-md-4 
+                        a(href='/candidats/details/#{candidate._id}') &gt; Details
+                .row
+                    .col-md-12 
+                        p #{candidate.mainWorkExperience}
+                hr
+        -} else { 
+            p Criteri di selezione errati
+        -}
