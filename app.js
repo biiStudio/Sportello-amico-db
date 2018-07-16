@@ -24,6 +24,8 @@ var express = require('express')
 
 
 //db connection ---------------------
+mongoose.connect('process.env.MONGODB_URI');
+
 var db = mongoose.connection;
 
 var routes = require("./routes/index");
