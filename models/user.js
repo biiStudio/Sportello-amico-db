@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
-mongoose.connect('mongodb://localhost/sportello-amico');
+mongoose.connect('mongodb://amico:amico2018@ds139251.mlab.com:39251/heroku_snjdrsnt');
+
+//mongoose.connect('mongodb://localhost/sportello-amico');
 
 var db = mongoose.connection;
 
