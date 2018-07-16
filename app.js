@@ -22,9 +22,12 @@ var express = require('express')
   , mongoose = require('mongoose');
 
 
+  
+  //db connection ---------------------
+var uri = 'mongodb://localhost/sportello-amico';
+mongoose.connect(process.env.MONGODB_URI || uri);
 
-//db connection ---------------------
-mongoose.connect('process.env.MONGODB_URI');
+
 
 var db = mongoose.connection;
 
