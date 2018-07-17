@@ -4,21 +4,21 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 
-/*
+
 function ensureAuthenticated(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
     res.redirect("/users/login");
 }
-*/
+
 
 // GET users listing. 
-router.get("/", /*ensureAuthenticated,*/ function(req, res, next) {
+router.get("/", ensureAuthenticated, function(req, res, next) {
   res.render("index", { title: "Home" });
 });
 
-router.get("/register", /*ensureAuthenticated,*/ function(req, res, next) {
+router.get("/register", ensureAuthenticated, function(req, res, next) {
     res.render("register", {
       title: 'Nuovo Utente'
   });
