@@ -16,12 +16,12 @@ html
         |       
         #menuCollapse.collapse.navbar-collapse
           ul.navbar-nav.ml-auto
-            - if (!user){
+                    
                 li.nav-item(class=(title == 'Home' ? 'active' : ''))
                   a.nav-link.js-scroll-trigger(href='/') Home
                 li.nav-item(class=(title == 'Login' ? 'active' : ''))
                   a.nav-link(href='/users/login') Login
-            -} else if (user && user.username =='Ianos2' ){
+                    
                 li.nav-item(class=(title == 'Home' ? 'active' : ''))
                   a.nav-link.js-scroll-trigger(href='/') Home
                 li.nav-item(class=(title == 'Cerca candidado' ? 'active' : ''))
@@ -32,7 +32,7 @@ html
                   a.nav-link(href='/users/register') Nuovo Utente
                 li.nav-item
                   a.nav-link(href='/users/logout') Logout
-            -} else if (user){
+                    
                 li.nav-item(class=(title == 'Home' ? 'active' : ''))
                   a.nav-link.js-scroll-trigger(href='/') Home
                 li.nav-item(class=(title == 'Cerca candidado' ? 'active' : ''))
@@ -41,10 +41,10 @@ html
                   a.nav-link(href='/candidats/new_candidate') Nuovo candidado
                 li.nav-item
                   a.nav-link(href='/users/logout') Logout
-            -} else {
+                    
                 li.nav-item(class=(title == 'Login' ? 'active' : ''))
                   a.nav-link(href='/users/login') Login
-            -}
+                    
             
               
     main
