@@ -39,17 +39,17 @@ var candidats = require("./routes/candidats");
 
 var app = express();
 
-var env = process.env.NODE_ENV || 'development';
-	if ('development' == env) {
-	   // configure stuff here
-		app.use("/", routes);
-		app.use("/users", users);
-		app.use("/candidats", candidats);  
-	} else {
-	   app.use("/", routes);
-		app.use("/users", users);
-		app.use("/candidats", candidats);
-	}
+// var env = process.env.NODE_ENV || 'development';
+	// if ('development' == env) {
+	   configure stuff here
+		// app.use("/", routes);
+		// app.use("/users", users);
+		// app.use("/candidats", candidats);  
+	// } else {
+	   // app.use("/", routes);
+		// app.use("/users", users);
+		// app.use("/candidats", candidats);
+	// }
 
 
 app.server = http.createServer(app);
