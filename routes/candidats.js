@@ -5,7 +5,9 @@ var LocalStrategy = require('passport-local').Strategy;
 var Candidate = require('../models/candidate');
 var mongoose = require('mongoose');
 
-var uri = 'mongodb://localhost/sportello-amico';
+//var uri = 'mongodb://localhost/sportello-amico';
+
+var uri = 'mongodb://0.0.0.0/sportello-amico';
 mongoose.connect(process.env.MONGODB_URI || uri);
 
 //mongoose.connect('mongodb://localhost/sportello-amico');

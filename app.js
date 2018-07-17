@@ -24,7 +24,9 @@ var express = require('express')
 
   
   //db connection ---------------------
-var uri = 'mongodb://localhost/sportello-amico';
+  
+  var uri = 'mongodb://0.0.0.0/sportello-amico';
+//var uri = 'mongodb://localhost/sportello-amico';
 mongoose.connect(process.env.MONGODB_URI || uri);
 
 
@@ -38,12 +40,16 @@ var candidats = require("./routes/candidats");
 var app = express();
 
 var env = process.env.NODE_ENV || 'development';
-if ('development' == env) {
-   // configure stuff here
-    app.use(express.static(__dirname + '/'));   
-} else {
-    app.use(express.static(__dirname + '/'));
-}
+	if ('development' == env) {
+	   // configure stuff here
+		app.use("/", routes);
+		app.use("/users", users);
+		app.use("/candidats", candidats);  
+	} else {
+	   app.use("/", routes);
+		app.use("/users", users);
+		app.use("/candidats", candidats);
+	}
 
 
 app.server = http.createServer(app);

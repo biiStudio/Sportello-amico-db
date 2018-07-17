@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
-var uri = 'mongodb://localhost/sportello-amico';
+//var uri = 'mongodb://localhost/sportello-amico';
+var uri = 'mongodb://0.0.0.0/sportello-amico';
 mongoose.connect(process.env.MONGODB_URI || uri);
 
 //mongoose.connect('mongodb://localhost/sportello-amico');
