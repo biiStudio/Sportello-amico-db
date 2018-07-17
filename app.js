@@ -37,6 +37,15 @@ var candidats = require("./routes/candidats");
 
 var app = express();
 
+var env = process.env.NODE_ENV || 'development';
+if ('development' == env) {
+   // configure stuff here
+    app.use(express.static(__dirname + '/'));   
+} else {
+    app.use(express.static(__dirname + '/'));
+}
+
+
 app.server = http.createServer(app);
 
 
