@@ -27,12 +27,12 @@ block content
                       input.form-control(type='text', name='sportelloIndex', placeholder='')
                     |  
                 .form-row
-                    .form-group.col-md-3
+                    .form-group.col-md-4
                       label Data di nascita:
                       |       
                       input.form-control(type='date', name='bday', placeholder='')
                     |     
-                    .form-group.col-md-3
+                    .form-group.col-md-4
                       label Codice Fiscale:
                       |       
                       input.form-control(type='text', name='idnp', placeholder='')
@@ -48,7 +48,8 @@ block content
                         option M
                         option F
                     |  
-                    .form-check.form-check-inline.col-md-2
+                .form-row
+                    .form-check.form-check-inline.col-md-6
                         input.form-check-input(type='checkbox', name='disability')
                         |   
                         label.form-check-label Categorie protette:
@@ -102,7 +103,7 @@ block content
             
                 .form-row
                     .form-group
-                        .form-check.form-check-inline.col-md-4
+                        .form-check.form-check-inline.col-md-8
                             input.form-check-input(type='checkbox', name='active')
                             |   
                             label.form-check-label Occupato:
