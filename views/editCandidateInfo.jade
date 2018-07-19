@@ -11,8 +11,10 @@ block content
                 each error, i in errors
                     li.alert.alert-danger #{error.msg}
             h5 INFORMAZIONI PERSONALI:
+		button(type='button', onclick="printJS('printJS-form', 'html')")
+			| Print Form
         
-        form(method='post', action='/candidats/edit/#{candidats._id}',enctype='multipart/form-data')
+        form(method='post', action='/candidats/edit/#{candidats._id}',enctype='multipart/form-data', id="printJS-form")
                 .form-row
                     .form-group.col-md-4
                       label Nome:
