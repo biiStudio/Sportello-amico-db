@@ -17,6 +17,7 @@ var express = require('express')
   , LocalStrategy = require('passport-local').Strategy
   , bodyParser = require('body-parser')
   , multer = require('multer')
+  , printJS = require('print-js')
   , flash = require('connect-flash')
   , mongo = require('mongodb')
   , mongoose = require('mongoose');
