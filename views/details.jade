@@ -12,10 +12,11 @@ block content
             legend INFORMAZIONI PERSONALI:
             .row
                 .col-md-6
-                    p Nome: #[strong #{candidats.firstname}] &nbsp; &nbsp; Cognome: #[strong #{candidats.lastname}]
+                    p Nome: #[strong #{candidats.firstname}] &nbsp; &nbsp; Cognome: #[strong #{candidats.lastname}] &nbsp; &nbsp; Codice candidato: #[strong #{candidats.sportelloIndex}]
             .row
-                .col-md-6
-                    p Data di nascita: #[strong #{candidats.bday}] &nbsp; &nbsp; Sesso: #[strong #{candidats.gender}]
+                .col-md-10
+                    p Data di nascita: #[strong #{candidats.bday}] &nbsp; &nbsp; Sesso: #[strong #{candidats.gender}] &nbsp; &nbsp; Categorie protette: #[strong #{candidats.disability}]
+            .row
                 .col-md-6 
                     p Nazionalita: #[strong #{candidats.nationality}] &nbsp; &nbsp; Codice Fiscale: #[strong #{candidats.idnp}]
             .row
@@ -23,21 +24,42 @@ block content
                     p Indirizzo: #[strong #{candidats.address}] &nbsp; &nbsp; Citta: #[strong #{candidats.city}] &nbsp; &nbsp; Prov.: #[strong #{candidats.region}] &nbsp; &nbsp; CAP: #[strong #{candidats.zip}]
             .row
                 .col-md-12 
-                    p Telefono: #[strong #{candidats.tel}] &nbsp; &nbsp; Email: #[strong #{candidats.email}]
+                    p Telefono: #[strong #{candidats.tel}] &nbsp; &nbsp; Whatsapp: #[strong #{candidats.isWhatsapp}] &nbsp; &nbsp; Email: #[strong #{candidats.email}]
                     
             legend ESPERIENZA PROFESSIONALE:
+            .row
+                .col-md-3
+                    p Occupato: #[strong #{candidats.active}]
             .row 
-                .col-md-12
+                .col-md-8
                     label Esperienza lavorativa principale:
                     p #[strong #{candidats.mainWorkExperience}]
+                .col-md-4
+                    p Settore: #[strong #{candidats.expDomain1}]
             .row
-                .col-md-12
+                .col-md-8
                     label Esperienza lavorativa secondaria:
                     p #[strong #{candidats.otherWorkExperience}]
+                .col-md-4
+                    p Settore: #[strong #{candidats.expDomain2}]
             .row
-                .col-md-12
-                    label Occupazione ricercata:
-                    p #[strong #{candidats.lookingFor}]
+                .col-md-8
+                    label Occupazione ricercata (1):
+                    p #[strong #{candidats.lookingFor1}]
+                .col-md-4
+                    p Settore: #[strong #{candidats.lookDomain1}]
+            .row
+                .col-md-8
+                    label Occupazione ricercata (2):
+                    p #[strong #{candidats.lookingFor2}]
+                .col-md-4
+                    p Settore: #[strong #{candidats.lookDomain2}]
+            .row
+                .col-md-8
+                    label Occupazione ricercata (3):
+                    p #[strong #{candidats.lookingFor3}]
+                .col-md-4
+                    p Settore: #[strong #{candidats.lookDomain3}]                    
             .row
                 .col-md-12
                     label Capacità e competenze professionali:
@@ -56,6 +78,10 @@ block content
                 .col-md-12
                     label Corsi di formazione:
                     p #[strong #{candidats.courses}]
+            .row
+                .col-md-12
+                    label Ulteriori informazioni:
+                    p #[strong #{candidats.otherInfo}]
                     
             legend COMPETENZE PERSONALI:
             .row
@@ -116,8 +142,8 @@ block content
                     p Patente: #[strong #{candidats.license}]
                 .col-md-3
                     p Privacy: #[strong #{candidats.privacy}]
-                .col-md-3
-                    p Occupato: #[strong #{candidats.active}]
+                .col-md-4
+                    p Data colloquio: #[strong #{candidats.interviewDate}]
         .container
             br
             br

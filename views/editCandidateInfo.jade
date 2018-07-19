@@ -14,23 +14,28 @@ block content
         
         form(method='post', action='/candidats/edit/#{candidats._id}',enctype='multipart/form-data')
                 .form-row
-                    .form-group.col-md-6
+                    .form-group.col-md-4
                       label Nome:
                       |       
                       input.form-control(type='text', name='firstname', value='#{candidats.firstname}')
                     |     
-                    .form-group.col-md-6
+                    .form-group.col-md-4
                       label Cognome:
                       |       
                       input.form-control(type='text', name='lastname', value='#{candidats.lastname}')
+                    |     
+                    .form-group.col-md-4
+                      label Codice candidato:
+                      |       
+                      input.form-control(type='text', name='sportelloIndex', value='#{candidats.sportelloIndex}')
                     |  
                 .form-row
-                    .form-group.col-md-4
+                    .form-group.col-md-3
                       label Data di nascita:
                       |       
                       input.form-control(type='date', name='bday', value='#{candidats.bday}')
                     |     
-                    .form-group.col-md-4
+                    .form-group.col-md-3
                       label Codice Fiscale:
                       |       
                       input.form-control(type='text', name='idnp', value='#{candidats.idnp}')
@@ -46,6 +51,15 @@ block content
                         option M
                         option F
                     |  
+                    .form-check.form-check-inline.col-md-2
+                        - if ( candidats.disability ){
+                            input.form-check-input(type='checkbox', name='disability', checked)
+                        -} else {
+                            input.form-check-input(type='checkbox', name='disability')
+                        -}
+                            |   
+                            label.form-check-label Categorie protette:
+                
                 .form-group
                     label Indirizzo:
                     |     
@@ -82,28 +96,237 @@ block content
                         input.form-control(type='text', aria-describedby='telComments', name='tel', value='#{candidats.tel}')
                         |     
                         small#telComments.form-text.text-muted Si possono inserire piu  recapiti telefonici separandoli con ";".
+                    .form-check.form-check-inline.col-md-3
+                        - if (candidats.isWhatsapp ){
+                            input.form-check-input(type='checkbox', name='isWhatsapp', checked)
+                        -} else {
+                            input.form-check-input(type='checkbox', name='isWhatsapp')
+                        -}
+                            |   
+                            label.form-check-label Whatsapp:
                     .form-group.col-md-4
                         label Email:
                         |     
                         input.form-control(type='email', name='email', value='#{candidats.email}')
                   |   
                 h5 ESPERIENZA PROFESSIONALE:
-            
-                .form-group
-                    label Esperienza lavorativa principale:
-                    |       
-                    textarea.form-control(type='text', name='mainWorkExperience') #{candidats.mainWorkExperience}
-                    |     
-                .form-group
-                    label Esperienza lavorativa secondaria:
-                    |       
-                    textarea.form-control(type='text', name='otherWorkExperience') #{candidats.otherWorkExperience}
-                    |     
-                .form-group
-                    label Occupazione ricercata:
-                    |       
-                    textarea.form-control(type='text', name='lookingFor') #{candidats.lookingFor}
-                    |     
+                
+                .form-row  
+                    .form-check.form-check-inline.col-md-4
+                        - if ( candidats.active ){
+                            input.form-check-input(type='checkbox', name='active', checked)
+                        -} else {
+                            input.form-check-input(type='checkbox', name='active')
+                        -}
+                            |   
+                            label.form-check-label Occupato:
+                .form-row
+                    .form-group.col-md-8
+                        label Esperienza lavorativa principale:
+                        |       
+                        textarea.form-control(type='text', name='mainWorkExperience') #{candidats.mainWorkExperience}
+                        |     
+                    .form-group.col-md-4
+                        label Settore:
+                          |       
+                        select.form-control(name='expDomain1', value='#{candidats.expDomain1}')
+                            option #{candidats.expDomain1}
+                            option Agricoltura
+                            option Altre professioni
+                            option Amministrazione - Acquisti
+                            option Commerciale
+                            option Contabilità
+                            option Creativo - Design
+                            option Customer service
+                            option Edilizia - Cantieristica
+                            option Energie rinnovabili
+                            option Engineering - Area tecnica - Progettazione
+                            option Finanza
+                            option Formazione
+                            option Informatica
+                            option Installazione - Manutenzione
+                            option Legale
+                            option Logistica - Trasporto - Magazzino
+                            option Marketing - Comunicazione
+                            option Moda - Stile
+                            option Produzione
+                            option Pubblica Amministrazione
+                            option Pulizie
+                            option Qualità - Sicurezza - Ambiente
+                            option Ricerca e sviluppo
+                            option Risorse Umane - Personale
+                            option Sanità
+                            option Segreteria
+                            option Servizi alla Persona
+                            option Turismo - Ristorazione
+                            option Vendita
+                            option Vigilanza - Custodia
+                        
+                .form-row
+                    .form-group.col-md-8
+                        label Esperienza lavorativa secondaria:
+                        |       
+                        textarea.form-control(type='text', name='otherWorkExperience') #{candidats.otherWorkExperience}
+                        |     
+                    .form-group.col-md-4
+                        label Settore:
+                          |       
+                        select.form-control(name='expDomain2', value='#{candidats.expDomain2}')
+                            option #{candidats.expDomain2}
+                            option Agricoltura
+                            option Altre professioni
+                            option Amministrazione - Acquisti
+                            option Commerciale
+                            option Contabilità
+                            option Creativo - Design
+                            option Customer service
+                            option Edilizia - Cantieristica
+                            option Energie rinnovabili
+                            option Engineering - Area tecnica - Progettazione
+                            option Finanza
+                            option Formazione
+                            option Informatica
+                            option Installazione - Manutenzione
+                            option Legale
+                            option Logistica - Trasporto - Magazzino
+                            option Marketing - Comunicazione
+                            option Moda - Stile
+                            option Produzione
+                            option Pubblica Amministrazione
+                            option Pulizie
+                            option Qualità - Sicurezza - Ambiente
+                            option Ricerca e sviluppo
+                            option Risorse Umane - Personale
+                            option Sanità
+                            option Segreteria
+                            option Servizi alla Persona
+                            option Turismo - Ristorazione
+                            option Vendita
+                            option Vigilanza - Custodia
+                        
+                .form-row
+                    .form-group.col-md-8
+                        label Occupazione ricercata (1):
+                        |       
+                        textarea.form-control(type='text', name='lookingFor1') #{candidats.lookingFor1}
+                        |     
+                    .form-group.col-md-4
+                        label Settore:
+                          |       
+                        select.form-control(name='lookDomain1', value='#{candidats.lookDomain1}')
+                            option #{candidats.lookDomain1}
+                            option Agricoltura
+                            option Altre professioni
+                            option Amministrazione - Acquisti
+                            option Commerciale
+                            option Contabilità
+                            option Creativo - Design
+                            option Customer service
+                            option Edilizia - Cantieristica
+                            option Energie rinnovabili
+                            option Engineering - Area tecnica - Progettazione
+                            option Finanza
+                            option Formazione
+                            option Informatica
+                            option Installazione - Manutenzione
+                            option Legale
+                            option Logistica - Trasporto - Magazzino
+                            option Marketing - Comunicazione
+                            option Moda - Stile
+                            option Produzione
+                            option Pubblica Amministrazione
+                            option Pulizie
+                            option Qualità - Sicurezza - Ambiente
+                            option Ricerca e sviluppo
+                            option Risorse Umane - Personale
+                            option Sanità
+                            option Segreteria
+                            option Servizi alla Persona
+                            option Turismo - Ristorazione
+                            option Vendita
+                            option Vigilanza - Custodia
+                .form-row
+                    .form-group.col-md-8
+                        label Occupazione ricercata (2):
+                        |       
+                        textarea.form-control(type='text', name='lookingFor2') #{candidats.lookingFor2}
+                        |  
+                    .form-group.col-md-4
+                        label Settore:
+                          |       
+                        select.form-control(name='lookDomain2', value='#{candidats.lookDomain2}')
+                            option #{candidats.lookDomain2}
+                            option Agricoltura
+                            option Altre professioni
+                            option Amministrazione - Acquisti
+                            option Commerciale
+                            option Contabilità
+                            option Creativo - Design
+                            option Customer service
+                            option Edilizia - Cantieristica
+                            option Energie rinnovabili
+                            option Engineering - Area tecnica - Progettazione
+                            option Finanza
+                            option Formazione
+                            option Informatica
+                            option Installazione - Manutenzione
+                            option Legale
+                            option Logistica - Trasporto - Magazzino
+                            option Marketing - Comunicazione
+                            option Moda - Stile
+                            option Produzione
+                            option Pubblica Amministrazione
+                            option Pulizie
+                            option Qualità - Sicurezza - Ambiente
+                            option Ricerca e sviluppo
+                            option Risorse Umane - Personale
+                            option Sanità
+                            option Segreteria
+                            option Servizi alla Persona
+                            option Turismo - Ristorazione
+                            option Vendita
+                            option Vigilanza - Custodia
+                .form-row
+                    .form-group.col-md-8
+                        label Occupazione ricercata (3):
+                        |       
+                        textarea.form-control(type='text', name='lookingFor3') #{candidats.lookingFor3}
+                        |     
+                    .form-group.col-md-4
+                        label Settore:
+                          |       
+                        select.form-control(name='lookDomain3', value='#{candidats.lookDomain3}')
+                            option #{candidats.lookDomain3}
+                            option Agricoltura
+                            option Altre professioni
+                            option Amministrazione - Acquisti
+                            option Commerciale
+                            option Contabilità
+                            option Creativo - Design
+                            option Customer service
+                            option Edilizia - Cantieristica
+                            option Energie rinnovabili
+                            option Engineering - Area tecnica - Progettazione
+                            option Finanza
+                            option Formazione
+                            option Informatica
+                            option Installazione - Manutenzione
+                            option Legale
+                            option Logistica - Trasporto - Magazzino
+                            option Marketing - Comunicazione
+                            option Moda - Stile
+                            option Produzione
+                            option Pubblica Amministrazione
+                            option Pulizie
+                            option Qualità - Sicurezza - Ambiente
+                            option Ricerca e sviluppo
+                            option Risorse Umane - Personale
+                            option Sanità
+                            option Segreteria
+                            option Servizi alla Persona
+                            option Turismo - Ristorazione
+                            option Vendita
+                            option Vigilanza - Custodia
                 .form-group
                     label Capacità e competenze professionali:
                     |       
@@ -126,6 +349,12 @@ block content
                     |       
                     textarea.form-control(type='text', name='courses') #{candidats.courses}
                     |     
+                .form-group
+                    label Ulteriori informazioni:
+                    |       
+                    textarea.form-control(type='text', name='otherInfo') #{candidats.otherInfo}
+                    |     
+                    
                 h5 COMPETENZE PERSONALI:
             
                 .form-row
@@ -334,14 +563,11 @@ block content
                         -}
                             |   
                             label.form-check-label Privacy
-                    .form-check.form-check-inline.col-md-4
-                        - if ( candidats.active ){
-                            input.form-check-input(type='checkbox', name='active', checked)
-                        -} else {
-                            input.form-check-input(type='checkbox', name='active')
-                        -}
-                            |   
-                            label.form-check-label Occupato:
+                    .form-group.col-md-4
+                      label Data colloquio:
+                      |       
+                      input.form-control(type='date', name='interviewDate', value='#{candidats.interviewDate}')
+                    |     
                 .form-row
                     .form-group.col-md-12
                     input.btn.btn-primary.col-md-12(name='submit', type='submit', values='Salva')

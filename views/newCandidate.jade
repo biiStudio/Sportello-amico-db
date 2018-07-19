@@ -11,23 +11,28 @@ block content
         
         form(method='post', action='/candidats/new_candidate',enctype='multipart/form-data')
                 .form-row
-                    .form-group.col-md-6
+                    .form-group.col-md-4
                       label Nome:
                       |       
                       input.form-control(type='text', name='firstname', placeholder='Nome')
                     |     
-                    .form-group.col-md-6
+                    .form-group.col-md-4       
                       label Cognome:
                       |       
                       input.form-control(type='text', name='lastname', placeholder='Cognome')
                     |  
+                    .form-group.col-md-4       
+                      label Codice candidato:
+                      |       
+                      input.form-control(type='text', name='sportelloIndex', placeholder='')
+                    |  
                 .form-row
-                    .form-group.col-md-4
+                    .form-group.col-md-3
                       label Data di nascita:
                       |       
                       input.form-control(type='date', name='bday', placeholder='')
                     |     
-                    .form-group.col-md-4
+                    .form-group.col-md-3
                       label Codice Fiscale:
                       |       
                       input.form-control(type='text', name='idnp', placeholder='')
@@ -43,6 +48,11 @@ block content
                         option M
                         option F
                     |  
+                    .form-check.form-check-inline.col-md-2
+                        input.form-check-input(type='checkbox', name='disability')
+                        |   
+                        label.form-check-label Categorie protette:
+                        | 
                 .form-group
                     label Indirizzo:
                     |     
@@ -191,7 +201,6 @@ block content
                         label Occupazione ricercata (1):
                         |       
                         textarea.form-control(type='text', name='lookingFor1', placeholder='...')
-                        |
                     .form-group.col-md-4
                         label Settore:
                         |       
@@ -231,7 +240,6 @@ block content
                         label Occupazione ricercata (2):
                         |       
                         textarea.form-control(type='text', name='lookingFor2', placeholder='...')
-                        |
                     .form-group.col-md-4
                         label Settore:
                           |       
@@ -271,7 +279,6 @@ block content
                         label Occupazione ricercata (3):
                         |       
                         textarea.form-control(type='text', name='lookingFor3', placeholder='...')
-                        |
                     .form-group.col-md-4
                         label Settore:
                           |       
