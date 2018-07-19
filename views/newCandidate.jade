@@ -78,7 +78,11 @@ block content
                         |     
                         input.form-control(type='text', aria-describedby='telComments', name='tel', placeholder='+39')
                         |     
-                        small#telComments.form-text.text-muted Si possono inserire piu  recapiti telefonici separandoli con ";".
+                        small#telComments.form-text.text-muted Si possono inserire piu recapiti telefonici separandoli con ";".
+                    .form-check.form-check-inline.col-md-4
+                        input.form-check-input(type='checkbox', name='isWhatsapp')
+                        |   
+                        label.form-check-label Whatsapp:
                     .form-group.col-md-4
                         label Email:
                         |     
@@ -86,21 +90,92 @@ block content
                   |   
                 h5 ESPERIENZA PROFESSIONALE:
             
-                .form-group
-                    label Esperienza lavorativa principale:
-                    |       
-                    textarea.form-control(type='text', name='mainWorkExperience', placeholder='Azienda, Periodo, Mansioni')
-                    |     
-                .form-group
-                    label Esperienza lavorativa secondaria:
-                    |       
-                    textarea.form-control(type='text', name='otherWorkExperience', placeholder='Azienda, Periodo, Mansioni')
-                    |     
-                .form-group
-                    label Occupazione ricercata:
-                    |       
-                    textarea.form-control(type='text', name='lookingFor', placeholder='...')
-                    |     
+                .form-row
+                    .form-group
+                        .form-check.form-check-inline.col-md-4
+                            input.form-check-input(type='checkbox', name='active')
+                            |   
+                            label.form-check-label Occupato:
+                .form-row
+                    .form-group.col-md-8
+                        label Esperienza lavorativa principale:
+                        |       
+                        textarea.form-control(type='text', name='mainWorkExperience', placeholder='Azienda, Periodo, Mansioni')
+                        |   
+                    .form-group.col-md-4
+                        label Settore:
+                          |       
+                        select.form-control(name='expDomain1')
+                            option Agricoltura
+                            option Altre professioni
+                            option Amministrazione - Acquisti
+                            option Commerciale
+                            option Contabilità
+                            option Creativo - Design
+                            option Customer service
+                            option Edilizia - Cantieristica
+                            option Energie rinnovabili
+                            option Engineering - Area tecnica - Progettazione
+                            option Finanza
+                            option Formazione
+                            option Informatica
+                            option Installazione - Manutenzione
+                            option Legale
+                            option Logistica - Trasporto - Magazzino
+                            option Marketing - Comunicazione
+                            option Moda - Stile
+                            option Produzione
+                            option Pubblica Amministrazione
+                            option Pulizie
+                            option Qualità - Sicurezza - Ambiente
+                            option Ricerca e sviluppo
+                            option Risorse Umane - Personale
+                            option Sanità
+                            option Segreteria
+                            option Servizi alla Persona
+                            option Turismo - Ristorazione
+                            option Vendita
+                            option Vigilanza - Custodia  
+                .form-row
+                    .form-group.col-md-8
+                        label Esperienza lavorativa secondaria:
+                        |       
+                        textarea.form-control(type='text', name='otherWorkExperience', placeholder='Azienda, Periodo, Mansioni')
+                        | 
+                    .form-group.col-md-4
+                        label Settore:
+                          |       
+                        select.form-control(name='expDomain2')
+                            option Agricoltura
+                            option Altre professioni
+                            option Amministrazione - Acquisti
+                            option Commerciale
+                            option Contabilità
+                            option Creativo - Design
+                            option Customer service
+                            option Edilizia - Cantieristica
+                            option Energie rinnovabili
+                            option Engineering - Area tecnica - Progettazione
+                            option Finanza
+                            option Formazione
+                            option Informatica
+                            option Installazione - Manutenzione
+                            option Legale
+                            option Logistica - Trasporto - Magazzino
+                            option Marketing - Comunicazione
+                            option Moda - Stile
+                            option Produzione
+                            option Pubblica Amministrazione
+                            option Pulizie
+                            option Qualità - Sicurezza - Ambiente
+                            option Ricerca e sviluppo
+                            option Risorse Umane - Personale
+                            option Sanità
+                            option Segreteria
+                            option Servizi alla Persona
+                            option Turismo - Ristorazione
+                            option Vendita
+                            option Vigilanza - Custodia    
                 .form-group
                     label Capacità e competenze professionali:
                     |       
@@ -111,6 +186,128 @@ block content
                     |       
                     textarea.form-control(type='text', name='ITcapabilities', placeholder='...')
                     |     
+                .form-row
+                    .form-group.col-md-8
+                        label Occupazione ricercata (1):
+                        |       
+                        textarea.form-control(type='text', name='lookingFor1', placeholder='...')
+                        |
+                    .form-group.col-md-4
+                        label Settore:
+                          |       
+                        select.form-control(name='lookDomain1')
+                            option Agricoltura
+                            option Altre professioni
+                            option Amministrazione - Acquisti
+                            option Commerciale
+                            option Contabilità
+                            option Creativo - Design
+                            option Customer service
+                            option Edilizia - Cantieristica
+                            option Energie rinnovabili
+                            option Engineering - Area tecnica - Progettazione
+                            option Finanza
+                            option Formazione
+                            option Informatica
+                            option Installazione - Manutenzione
+                            option Legale
+                            option Logistica - Trasporto - Magazzino
+                            option Marketing - Comunicazione
+                            option Moda - Stile
+                            option Produzione
+                            option Pubblica Amministrazione
+                            option Pulizie
+                            option Qualità - Sicurezza - Ambiente
+                            option Ricerca e sviluppo
+                            option Risorse Umane - Personale
+                            option Sanità
+                            option Segreteria
+                            option Servizi alla Persona
+                            option Turismo - Ristorazione
+                            option Vendita
+                            option Vigilanza - Custodia
+                .form-row
+                    .form-group.col-md-8
+                        label Occupazione ricercata (2):
+                        |       
+                        textarea.form-control(type='text', name='lookingFor2', placeholder='...')
+                        |
+                    .form-group.col-md-4
+                        label Settore:
+                          |       
+                        select.form-control(name='lookDomain2')
+                            option Agricoltura
+                            option Altre professioni
+                            option Amministrazione - Acquisti
+                            option Commerciale
+                            option Contabilità
+                            option Creativo - Design
+                            option Customer service
+                            option Edilizia - Cantieristica
+                            option Energie rinnovabili
+                            option Engineering - Area tecnica - Progettazione
+                            option Finanza
+                            option Formazione
+                            option Informatica
+                            option Installazione - Manutenzione
+                            option Legale
+                            option Logistica - Trasporto - Magazzino
+                            option Marketing - Comunicazione
+                            option Moda - Stile
+                            option Produzione
+                            option Pubblica Amministrazione
+                            option Pulizie
+                            option Qualità - Sicurezza - Ambiente
+                            option Ricerca e sviluppo
+                            option Risorse Umane - Personale
+                            option Sanità
+                            option Segreteria
+                            option Servizi alla Persona
+                            option Turismo - Ristorazione
+                            option Vendita
+                            option Vigilanza - Custodia
+                .form-row
+                    .form-group.col-md-8
+                        label Occupazione ricercata (3):
+                        |       
+                        textarea.form-control(type='text', name='lookingFor3', placeholder='...')
+                        |
+                    .form-group.col-md-4
+                        label Settore:
+                          |       
+                        select.form-control(name='lookDomain3')
+                            option Agricoltura
+                            option Altre professioni
+                            option Amministrazione - Acquisti
+                            option Commerciale
+                            option Contabilità
+                            option Creativo - Design
+                            option Customer service
+                            option Edilizia - Cantieristica
+                            option Energie rinnovabili
+                            option Engineering - Area tecnica - Progettazione
+                            option Finanza
+                            option Formazione
+                            option Informatica
+                            option Installazione - Manutenzione
+                            option Legale
+                            option Logistica - Trasporto - Magazzino
+                            option Marketing - Comunicazione
+                            option Moda - Stile
+                            option Produzione
+                            option Pubblica Amministrazione
+                            option Pulizie
+                            option Qualità - Sicurezza - Ambiente
+                            option Ricerca e sviluppo
+                            option Risorse Umane - Personale
+                            option Sanità
+                            option Segreteria
+                            option Servizi alla Persona
+                            option Turismo - Ristorazione
+                            option Vendita
+                            option Vigilanza - Custodia
+
+                    
                 h5 ISTRUZIONE E FORMAZIONE:
             
                 .form-group
@@ -123,6 +320,11 @@ block content
                     |       
                     textarea.form-control(type='text', name='courses', placeholder='...')
                     |     
+                .form-group
+                    label Ulteriori informazioni:
+                    |       
+                    textarea.form-control(type='text', name='otherInfo', placeholder='...')
+                    | 
                 h5 COMPETENZE PERSONALI:
             
                 .form-row
@@ -323,10 +525,10 @@ block content
                         input.form-check-input(type='checkbox', name='privacy')
                         |   
                         label.form-check-label Privacy:
-                    .form-check.form-check-inline.col-md-4
-                        input.form-check-input(type='checkbox', name='active')
-                        |   
-                        label.form-check-label Occupato:
+                    .form-group.col-md-4
+                      label Data colloquio:
+                      |       
+                      input.form-control(type='date', name='interviewDate', placeholder='')
                 .form-row
                     .form-group.col-md-12
                 input.btn.btn-primary.col-md-12(name='submit', type='submit', values='Salva')

@@ -86,28 +86,40 @@ router.get("/new_candidate", ensureAuthenticated, function(req, res, next) {
 
 router.post("/new_candidate",ensureAuthenticated, function(req, res, next) {
     
+    var sportelloIndex = req.body.sportelloIndex;
     var firstname = req.body.firstname;
     var lastname = req.body.lastname;
     var bday = req.body.bday;
     var idnp = req.body.idnp;
     var nationality =  req.body.nationality;
     var gender = req.body.gender;
+    var disability = req.body.disability;
     var address = req.body.address;
     var city = req.body.city;
     var region = req.body.region;
     var zip =  req.body.zip;
+    
     var tel = req.body.tel;
+    var isWhatsapp = req.body.isWhatsapp;
     var email = req.body.email;
     
+    var expDomain1 = req.body.expDomain1
     var mainWorkExperience = req.body.mainWorkExperience;
+    var expDomain2 = req.body.expDomain2;
     var otherWorkExperience = req.body.otherWorkExperience;
-    var lookingFor =  req.body.lookingFor;
+    
+    var lookDomain1 = req.body.lookDomain1;
+	var lookingFor1 = req.body.lookingFor1;
+    var lookDomain2 = req.body.lookDomain2;
+    var lookingFor2 = req.body.lookingFor2;
+    var lookDomain3 = req.body.lookDomain3;
+    var lookingFor3 = req.body.lookingFor3;
     var capabilities = req.body.capabilities;
     var ITcapabilities = req.body.ITcapabilities;
     
     var mainSchool =  req.body.mainSchool;
     var courses =  req.body.courses;
-    
+    var otherInfo = req.body.otherInfo;
     var language1 = req.body.language1;
     var language2 = req.body.language2;
     if (language2 != ""){
@@ -159,6 +171,7 @@ router.post("/new_candidate",ensureAuthenticated, function(req, res, next) {
     var euroCV =  req.body.euroCV;
     var privacy = req.body.privacy;
     var active = req.body.active;
+    var interviewDate = req.body.interviewDate;
 
     // Check for CV Field
     if(req.files.cv){
@@ -215,98 +228,121 @@ router.post("/new_candidate",ensureAuthenticated, function(req, res, next) {
         res.render('newCandidate', {
             errors: errors,
 
-            firstname: firstname,
-            lastname: lastname, 
-            bday: bday,
-            idnp: idnp,
-            nationality: nationality,
-            gender: gender,
-            address: address,
-            city: city,
-            region: region,
-            zip: zip,
-            tel: tel,
-            email: email,
-            mainWorkExperience: mainWorkExperience,
-            otherWorkExperience: otherWorkExperience,
-            lookingFor: lookingFor,
-            capabilities: capabilities,
-            ITcapabilities: ITcapabilities,
-            mainSchool: mainSchool,
-            courses: courses,
-            language1: language1,
-            language2: language2,
-            l2C: l2C,
-            l2P: l2P,
-            l2S: l2S,
-            language3: language3,
-            l3C: l3C,
-            l3P: l3P,
-            l3S: l3S,
-            language4: language4,
-            l4C: l4C,
-            l4P: l4P,
-            l4S: l4S,
-            language5: language5,
-            l5C: l5C,
-            l5P: l5P,
-            l5S: l5S,
-            problems: problems,
-            license: license,
-            euroCV: euroCV,
-            privacy: privacy,
-            active: active,
-            profileImage: profileImageName,
-            profileCv: profileCvName
+                sportelloIndex:  sportelloIndex,
+                firstname: firstname,
+				lastname: lastname, 
+				bday: bday,
+				idnp: idnp,
+				nationality: nationality,
+				gender: gender,
+                disability: disability,
+				address: address,
+				city: city,
+				region: region,
+				zip: zip,
+				tel: tel,
+                isWhatsapp: isWhatsapp,
+				email: email,
+                expDomain1: expDomain1,
+				mainWorkExperience: mainWorkExperience,
+                expDomain2: expDomain2,
+				otherWorkExperience: otherWorkExperience,
+                lookDomain1: lookDomain1,
+				lookingFor1: lookingFor1,
+                lookDomain2: lookDomain2,
+                lookingFor2: lookingFor2,
+                lookDomain3: lookDomain3,
+                lookingFor3: lookingFor3,
+				capabilities: capabilities,
+				ITcapabilities: ITcapabilities,
+				mainSchool: mainSchool,
+				courses: courses,
+                otherInfo: otherInfo,
+				language1: language1,
+				language2: language2,
+				l2C: l2C,
+				l2P: l2P,
+				l2S: l2S,
+				language3: language3,
+				l3C: l3C,
+				l3P: l3P,
+				l3S: l3S,
+				language4: language4,
+				l4C: l4C,
+				l4P: l4P,
+				l4S: l4S,
+				language5: language5,
+				l5C: l5C,
+				l5P: l5P,
+				l5S: l5S,
+				problems: problems,
+				license: license,
+				euroCV: euroCV,
+				privacy: privacy,
+				active: active,
+                interviewDate: interviewDate,
+				profileImage: profileImageName,
+				profileCv: profileCvName
 
         });
     } else {
         //var sportelloIndex = 'AA0' + db.candidates.count() + 1;
         var newCandidate = new Candidate({
-       //     sportelloIndex: sportelloIndex,
-            firstname: firstname,
-            lastname: lastname, 
-            bday: bday,
-            idnp: idnp,
-            nationality: nationality,
-            gender: gender,
-            address: address,
-            city: city,
-            region: region,
-            zip: zip,
-            tel: tel,
-            email: email,
-            mainWorkExperience: mainWorkExperience,
-            otherWorkExperience: otherWorkExperience,
-            lookingFor: lookingFor,
-            capabilities: capabilities,
-            ITcapabilities: ITcapabilities,
-            mainSchool: mainSchool,
-            courses: courses,
-            language1: language1,
-            language2: language2,
-            l2C: l2C,
-            l2P: l2P,
-            l2S: l2S,
-            language3: language3,
-            l3C: l3C,
-            l3P: l3P,
-            l3S: l3S,
-            language4: language4,
-            l4C: l4C,
-            l4P: l4P,
-            l4S: l4S,
-            language5: language5,
-            l5C: l5C,
-            l5P: l5P,
-            l5S: l5S,
-            problems: problems,
-            license: license,
-            euroCV: euroCV,
-            privacy: privacy,
-            active: active,
-            profileImage: profileImageName,
-            profileCv: profileCvName
+                sportelloIndex:  sportelloIndex,
+                firstname: firstname,
+				lastname: lastname, 
+				bday: bday,
+				idnp: idnp,
+				nationality: nationality,
+				gender: gender,
+                disability: disability,
+				address: address,
+				city: city,
+				region: region,
+				zip: zip,
+				tel: tel,
+                isWhatsapp: isWhatsapp,
+				email: email,
+                expDomain1: expDomain1,
+				mainWorkExperience: mainWorkExperience,
+                expDomain2: expDomain2,
+				otherWorkExperience: otherWorkExperience,
+                lookDomain1: lookDomain1,
+				lookingFor1: lookingFor1,
+                lookDomain2: lookDomain2,
+                lookingFor2: lookingFor2,
+                lookDomain3: lookDomain3,
+                lookingFor3: lookingFor3,
+				capabilities: capabilities,
+				ITcapabilities: ITcapabilities,
+				mainSchool: mainSchool,
+				courses: courses,
+                otherInfo: otherInfo,
+				language1: language1,
+				language2: language2,
+				l2C: l2C,
+				l2P: l2P,
+				l2S: l2S,
+				language3: language3,
+				l3C: l3C,
+				l3P: l3P,
+				l3S: l3S,
+				language4: language4,
+				l4C: l4C,
+				l4P: l4P,
+				l4S: l4S,
+				language5: language5,
+				l5C: l5C,
+				l5P: l5P,
+				l5S: l5S,
+				problems: problems,
+				license: license,
+				euroCV: euroCV,
+				privacy: privacy,
+				active: active,
+                interviewDate: interviewDate,
+				profileImage: profileImageName,
+				profileCv: profileCvName
         });
 
             // Create Candidate
@@ -334,25 +370,36 @@ router.post("/edit/:id", ensureAuthenticated, function(req, res, next) {
             console.log("Candidate to be edited: " + candidate);
             // Updating Candidate info
         candidate.id = [req.params.id];
+		candidate.sportelloIndex =  req.body.sportelloIndex;
 		candidate.firstname = req.body.firstname;
 		candidate.lastname = req.body.lastname;
 		candidate.bday = req.body.bday;
 		candidate.idnp = req.body.idnp;
 		candidate.nationality =  req.body.nationality;
 		candidate.gender = req.body.gender;
+        candidate.disability = req.body.disability;
 		candidate.address = req.body.address;
 		candidate.city = req.body.city;
 		candidate.region = req.body.region;
 		candidate.zip =  req.body.zip;
 		candidate.tel = req.body.tel;
+        candidate.isWhatsapp = req.body.isWhatsapp;
 		candidate.email = req.body.email;
+		candidate.expDomain1 = req.body.expDomain1;
 		candidate.mainWorkExperience = req.body.mainWorkExperience;
+		candidate.expDomain2 = req.body.expDomain2;
 		candidate.otherWorkExperience = req.body.otherWorkExperience;
-		candidate.lookingFor =  req.body.lookingFor;
+		candidate.lookDomain1 = req.body.lookDomain1;
+		candidate.lookingFor1 = req.body.lookingFor1;
+        candidate.lookDomain2 = req.body.lookDomain2;
+        candidate.lookingFor2 = req.body.lookingFor2;
+        candidate.lookDomain3 = req.body.lookDomain3;
+        candidate.lookingFor3 = req.body.lookingFor3;
 		candidate.capabilities = req.body.capabilities;
 		candidate.ITcapabilities = req.body.ITcapabilities;
 		candidate.mainSchool =  req.body.mainSchool;
 		candidate.courses =  req.body.courses;
+		candidate.otherInfo = req.body.otherInfo;
 		candidate.language1 = req.body.language1;
 		candidate.language2 = req.body.language2;
 			candidate.l2C = req.body.l2C;
@@ -374,6 +421,7 @@ router.post("/edit/:id", ensureAuthenticated, function(req, res, next) {
 		candidate.license = req.body.license;
 		candidate.euroCV =  req.body.euroCV;
 		candidate.privacy = req.body.privacy;
+		candidate.interviewDate = req.body.interviewDate;
 		candidate.active = req.body.active;
 		candidate.profileCvName = '';
 		candidate.profileImageName = 'noimage.png';
@@ -404,26 +452,36 @@ router.post("/edit/:id", ensureAuthenticated, function(req, res, next) {
 		} else {
 			//var sportelloIndex = 'AA0' + db.candidates.count() + 1;
 			candidate = {
-		   //     sportelloIndex: sportelloIndex,
-				firstname: candidate.firstname,
+                sportelloIndex:  candidate.sportelloIndex,
+                firstname: candidate.firstname,
 				lastname: candidate.lastname, 
 				bday: candidate.bday,
 				idnp: candidate.idnp,
 				nationality: candidate.nationality,
 				gender: candidate.gender,
+                disability: candidate.disability,
 				address: candidate.address,
 				city: candidate.city,
 				region: candidate.region,
 				zip: candidate.zip,
 				tel: candidate.tel,
+                isWhatsapp: candidate.isWhatsapp,
 				email: candidate.email,
+                expDomain1: candidate.expDomain1,
 				mainWorkExperience: candidate.mainWorkExperience,
+                expDomain2: candidate.expDomain2,
 				otherWorkExperience: candidate.otherWorkExperience,
-				lookingFor: candidate.lookingFor,
+                lookDomain1: candidate.lookDomain1,
+				lookingFor1: candidate.lookingFor1,
+                lookDomain2: candidate.lookDomain2,
+                lookingFor2: candidate.lookingFor2,
+                lookDomain3: candidate.lookDomain3,
+                lookingFor3: candidate.lookingFor3,
 				capabilities: candidate.capabilities,
 				ITcapabilities: candidate.ITcapabilities,
 				mainSchool: candidate.mainSchool,
 				courses: candidate.courses,
+                otherInfo: candidate.otherInfo,
 				language1: candidate.language1,
 				language2: candidate.language2,
 				l2C: candidate.l2C,
@@ -446,6 +504,7 @@ router.post("/edit/:id", ensureAuthenticated, function(req, res, next) {
 				euroCV: candidate.euroCV,
 				privacy: candidate.privacy,
 				active: candidate.active,
+                interviewDate: candidate.interviewDate,
 				profileImage: candidate.profileImageName,
 				profileCv: candidate.profileCvName
 			};
