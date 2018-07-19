@@ -29,17 +29,6 @@ block content
                       |       
                       input.form-control(type='text', name='sportelloIndex', value='#{candidats.sportelloIndex}')
                     |  
-                
-                .form-row
-                    .form-check.form-check-inline.col-md-6
-                        - if ( candidats.disability ){
-                            input.form-check-input(type='checkbox', name='disability', checked)
-                        -} else {
-                            input.form-check-input(type='checkbox', name='disability')
-                        -}
-                            |   
-                            label.form-check-label Categorie protette:
-                        br
                 .form-row
                     .form-group.col-md-4
                       label Data di nascita:
@@ -61,7 +50,17 @@ block content
                       select.form-control(name='gender', value='#{candidats.gender}')
                         option M
                         option F
-                    |  
+                    | 
+                .form-row
+                    .form-check.form-check-inline.col-md-6
+                        - if ( candidats.disability ){
+                            input.form-check-input(type='checkbox', name='disability', checked)
+                        -} else {
+                            input.form-check-input(type='checkbox', name='disability')
+                        -}
+                            |   
+                            label.form-check-label Categorie protette:
+                        br
                 .form-group
                     label Indirizzo:
                     |     
