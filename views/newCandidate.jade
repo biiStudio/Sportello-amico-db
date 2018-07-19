@@ -54,6 +54,7 @@ block content
                         |   
                         label.form-check-label Categorie protette:
                         | 
+                        br
                 .form-group
                     label Indirizzo:
                     |     
@@ -84,17 +85,17 @@ block content
                         input.form-control(type='text', name='zip')
                           |   
                 .form-row
-                    .form-group.col-md-4
+                    .form-group.col-md-3
                         label Telefono:
                         |     
                         input.form-control(type='text', aria-describedby='telComments', name='tel', placeholder='+39')
                         |     
                         small#telComments.form-text.text-muted Si possono inserire piu recapiti telefonici separandoli con ";".
-                    .form-check.form-check-inline.col-md-4
+                    .form-check.form-check-inline.col-md-3
                         input.form-check-input(type='checkbox', name='isWhatsapp')
                         |   
                         label.form-check-label Whatsapp:
-                    .form-group.col-md-4
+                    .form-group.col-md-3
                         label Email:
                         |     
                         input.form-control(type='email', name='email', placeholder='email...')
@@ -107,6 +108,7 @@ block content
                             input.form-check-input(type='checkbox', name='active')
                             |   
                             label.form-check-label Occupato:
+                br
                 .form-row
                     .form-group.col-md-8
                         label Esperienza lavorativa principale:
